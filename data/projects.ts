@@ -41,14 +41,14 @@ export const projects: Project[] = [
       'Designed an interactive learning interface to improve user engagement',
       'Integrated frontend and backend with RESTful APIs for seamless data flow',
     ],
-    image: '/images/projects/sibiku-sibi/sibi.jpg', // Ganti dengan path gambar yang sesuai
+    image: '/images/projects/sibiku/sibiku.jpeg',
     // github: '', // (Opsional) Tambahkan jika ada
-    // liveUrl: '', // (Opsional) Tambahkan jika ada
+    liveUrl: 'https://sibi-frontend.vercel.app',
     featured: true,
   },
   {
     id: 'e-rapor',
-    title: 'E-Rapor - PAUD Online Report System',
+    title: 'E-Raport - PAUD Online Report System',
     description:
       'A web-based reporting system for early childhood education to manage and access student report cards digitally.',
     longDescription:
@@ -67,8 +67,9 @@ export const projects: Project[] = [
       'Designed a responsive UI with Tailwind CSS for easy use on various devices',
       'Built secure RESTful APIs with NestJS for data handling',
     ],
-    image: '/images/projects/e-rapor/e-rapor.jpg',
+    image: '/images/projects/e-raport/e-raport.jpeg',
     featured: true,
+    liveUrl: 'https://radarunaim.com',
   },
   {
     id: 'zing-zone',
@@ -81,7 +82,7 @@ export const projects: Project[] = [
       'Implemented search and filter functionalities for efficient property discovery',
       'Created a responsive design using Chakra UI and Tailwind CSS',
     ],
-    image: '/images/projects/zing-zone/zing-zone.jpg',
+    image: '/images/projects/zing-zone/zing-zone.jpeg',
     featured: false,
   },
   {
@@ -101,7 +102,7 @@ export const projects: Project[] = [
       'Integrated reminder notifications for upcoming tasks',
       'Implemented user authentication and data persistence with MongoDB',
     ],
-    image: '/images/projects/taskplus/taskplus.jpg',
+    image: '/images/projects/taskplus/taskplus.jpeg',
     featured: false,
   },
   {
@@ -122,22 +123,8 @@ export const projects: Project[] = [
       'Implemented like, comment, and save features to enhance user interaction',
       'Designed a visually appealing UI tailored for art display and discovery',
     ],
-    image: '/images/projects/barayaart/barayaart.jpg',
+    image: '/images/projects/baraya-art/baraya-art.jpeg',
     featured: true,
-  },
-  {
-    id: 'ayokerja',
-    title: 'AyoKerja - Job Portal Platform',
-    description:
-      'A job portal that connects job seekers with employers by enabling job postings and candidate searches.',
-    technologies: ['PHP', 'Laravel', 'Vue.js'],
-    achievements: [
-      'Developed a full-featured job portal with separate interfaces for job seekers and employers',
-      'Implemented job search, application tracking, and resume upload functionality',
-      'Built with Laravel backend and Vue.js frontend for a modern user experience',
-    ],
-    image: '/images/projects/ayokerja/ayokerja.jpg',
-    featured: false,
   },
   {
     id: 'posivibes',
@@ -156,7 +143,7 @@ export const projects: Project[] = [
       'Implemented post creation, commenting, and liking features in a friendly environment',
       'Designed an uplifting UI to promote positive user engagement',
     ],
-    image: '/images/projects/posivibes/posivibes.jpg',
+    image: '/images/projects/posivibes/posivibes.jpeg',
     featured: false,
   },
 ]

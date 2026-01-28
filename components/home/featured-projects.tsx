@@ -15,9 +15,21 @@ import { Badge } from '@/components/ui/badge'
 import { projects } from '@/data/projects'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useState, useEffect } from 'react'
 
 export function FeaturedProjects() {
+  const [isMobile, setIsMobile] = useState(false)
   const featuredProjects = projects.filter((project) => project.featured)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640)
+    }
+
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   return (
     <section id="projects" className="py-8 md:py-12 lg:py-24 bg-muted/50">
@@ -72,7 +84,7 @@ export function FeaturedProjects() {
                   <CardContent className="flex-1 p-4 sm:p-6 pt-0">
                     <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
                       {project.technologies
-                        .slice(0, window.innerWidth < 640 ? 3 : 4)
+                        .slice(0, isMobile ? 3 : 4)
                         .map((tech) => (
                           <Badge
                             key={tech}
@@ -82,15 +94,12 @@ export function FeaturedProjects() {
                             {tech}
                           </Badge>
                         ))}
-                      {project.technologies.length >
-                        (window.innerWidth < 640 ? 3 : 4) && (
+                      {project.technologies.length > (isMobile ? 3 : 4) && (
                         <Badge
                           variant="outline"
                           className="text-xs px-2 py-0.5 sm:px-2.5 sm:py-1"
                         >
-                          +
-                          {project.technologies.length -
-                            (window.innerWidth < 640 ? 3 : 4)}
+                          +{project.technologies.length - (isMobile ? 3 : 4)}
                         </Badge>
                       )}
                     </div>

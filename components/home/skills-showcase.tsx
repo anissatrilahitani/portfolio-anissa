@@ -12,15 +12,20 @@ export function SkillsShowcase() {
   const [isMobile, setIsMobile] = useState(false)
   const categories = Object.keys(skills) as SkillCategory[]
 
-  // Detect mobile screen
+  // Detect mobile screen - dengan SSR check
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
+      if (typeof window !== 'undefined') {
+        setIsMobile(window.innerWidth < 768)
+      }
     }
 
     checkMobile()
-    window.addEventListener('resize', checkMobile)
-    return () => window.removeEventListener('resize', checkMobile)
+
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', checkMobile)
+      return () => window.removeEventListener('resize', checkMobile)
+    }
   }, [])
 
   return (
@@ -151,6 +156,17 @@ export function SkillsShowcase() {
             ))}
           </Tabs>
         </motion.div>
+
+        {/* Mobile helper text */}
+        {isMobile && (
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-center text-xs text-muted-foreground mt-4 px-4"
+          >
+            ← Scroll sideways to see more categories →
+          </motion.p>
+        )}
       </div>
 
       {/* Custom scrollbar styling */}

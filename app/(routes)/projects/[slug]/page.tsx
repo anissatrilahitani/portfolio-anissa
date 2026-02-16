@@ -2,12 +2,18 @@
 
 import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
-import { ArrowLeft, Github, ExternalLink } from "lucide-react";
-import { motion } from "framer-motion";
+import { ArrowLeft, Github, ExternalLink, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogHeader,
+} from "@/components/ui/dialog";
 import { projects, Project } from "@/data/projects";
 import React from "react";
 
@@ -15,6 +21,8 @@ export default function ProjectPage() {
   const router = useRouter();
   const params = useParams();
   const [project, setProject] = useState<Project | null>(null);
+  const [galleryOpen, setGalleryOpen] = useState(false);
+  const [galleryIndex, setGalleryIndex] = useState(0);
 
   useEffect(() => {
     // Safely access slug from params
@@ -71,6 +79,103 @@ export default function ProjectPage() {
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
                         priority
                     />
+                </div>
+              )}
+
+              {project.gallery && project.gallery.length > 0 && (
+                <div className="mb-8">
+                  <h2 className="text-2xl font-bold mb-4">Project Gallery</h2>
+                  <p className="text-muted-foreground mb-4">
+                    Screenshots & fitur dari project ini.
+                  </p>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                    {project.gallery.map((item, index) => (
+                      <button
+                        key={index}
+                        type="button"
+                        onClick={() => {
+                          setGalleryIndex(index);
+                          setGalleryOpen(true);
+                        }}
+                        className="relative aspect-video rounded-lg overflow-hidden border bg-muted hover:ring-2 hover:ring-primary/50 transition-all focus:outline-none focus:ring-2 focus:ring-primary"
+                      >
+                        <Image
+                          src={item.src}
+                          alt={item.alt ?? project.title}
+                          fill
+                          sizes="(max-width: 640px) 50vw, 33vw"
+                          className="object-cover"
+                        />
+                        {item.caption && (
+                          <span className="absolute bottom-0 left-0 right-0 bg-black/60 text-white text-xs py-1 px-2 text-center truncate">
+                            {item.caption}
+                          </span>
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                  <Dialog open={galleryOpen} onOpenChange={setGalleryOpen}>
+                    <DialogContent className="max-w-4xl p-0 gap-0 overflow-hidden">
+                      <DialogHeader className="sr-only">
+                        <DialogTitle>Gallery - {project.title}</DialogTitle>
+                      </DialogHeader>
+                      <div className="relative flex items-center justify-center min-h-[60vh] bg-muted">
+                        <AnimatePresence mode="wait">
+                          <motion.div
+                            key={galleryIndex}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="relative w-full aspect-video max-h-[70vh]"
+                          >
+                            <Image
+                              src={project.gallery[galleryIndex].src}
+                              alt={project.gallery[galleryIndex].alt ?? project.title}
+                              fill
+                              className="object-contain"
+                              sizes="80vw"
+                            />
+                          </motion.div>
+                        </AnimatePresence>
+                        {project.gallery.length > 1 && (
+                          <>
+                            <Button
+                              variant="secondary"
+                              size="icon"
+                              className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full h-10 w-10"
+                              onClick={() =>
+                                setGalleryIndex((i) =>
+                                  i === 0 ? project.gallery!.length - 1 : i - 1
+                                )
+                              }
+                            >
+                              <ChevronLeft className="h-5 w-5" />
+                            </Button>
+                            <Button
+                              variant="secondary"
+                              size="icon"
+                              className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full h-10 w-10"
+                              onClick={() =>
+                                setGalleryIndex((i) =>
+                                  i === project.gallery!.length - 1 ? 0 : i + 1
+                                )
+                              }
+                            >
+                              <ChevronRight className="h-5 w-5" />
+                            </Button>
+                          </>
+                        )}
+                        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-sm text-muted-foreground bg-background/80 px-3 py-1 rounded-full">
+                          {galleryIndex + 1} / {project.gallery.length}
+                        </div>
+                      </div>
+                      {project.gallery[galleryIndex].caption && (
+                        <p className="p-4 text-center text-sm text-muted-foreground border-t">
+                          {project.gallery[galleryIndex].caption}
+                        </p>
+                      )}
+                    </DialogContent>
+                  </Dialog>
                 </div>
               )}
 

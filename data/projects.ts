@@ -1,3 +1,9 @@
+export interface ProjectGalleryImage {
+  src: string
+  alt?: string
+  caption?: string
+}
+
 export interface Project {
   id: string
   title: string
@@ -6,6 +12,8 @@ export interface Project {
   technologies: string[]
   achievements: string[]
   image: string
+  /** Gallery images to showcase project features/screenshots */
+  gallery?: ProjectGalleryImage[]
   github?: string
   liveUrl?: string
   featured: boolean
@@ -42,6 +50,11 @@ export const projects: Project[] = [
       'Integrated frontend and backend with RESTful APIs for seamless data flow',
     ],
     image: '/images/projects/sibiku/sibiku.jpeg',
+    gallery: [
+      { src: '/images/projects/sibiku/sibiku.jpeg', alt: 'Sibiku SIBI homepage' },
+      { src: '/images/projects/sibiku/sibiku.jpeg', alt: 'Learning interface', caption: 'Interactive learning' },
+      { src: '/images/projects/sibiku/sibiku.jpeg', alt: 'Gesture recognition' },
+    ],
     // github: '', // (Opsional) Tambahkan jika ada
     liveUrl: 'https://sibi-frontend.vercel.app',
     featured: true,
@@ -68,6 +81,10 @@ export const projects: Project[] = [
       'Built secure RESTful APIs with NestJS for data handling',
     ],
     image: '/images/projects/e-raport/e-raport.jpeg',
+    gallery: [
+      { src: '/images/projects/e-raport/e-raport.jpeg', alt: 'E-Raport dashboard' },
+      { src: '/images/projects/e-raport/e-raport.jpeg', alt: 'Report input', caption: 'Input nilai' },
+    ],
     featured: true,
     liveUrl: 'https://radarunaim.com',
   },

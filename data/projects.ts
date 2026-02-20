@@ -51,9 +51,19 @@ export const projects: Project[] = [
     ],
     image: '/images/projects/sibiku/sibiku.jpeg',
     gallery: [
-      { src: '/images/projects/sibiku/sibiku.jpeg', alt: 'Sibiku SIBI homepage' },
-      { src: '/images/projects/sibiku/sibiku.jpeg', alt: 'Learning interface', caption: 'Interactive learning' },
-      { src: '/images/projects/sibiku/sibiku.jpeg', alt: 'Gesture recognition' },
+      {
+        src: '/images/projects/sibiku/sibiku.jpeg',
+        alt: 'Sibiku SIBI homepage',
+      },
+      {
+        src: '/images/projects/sibiku/sibiku.jpeg',
+        alt: 'Learning interface',
+        caption: 'Interactive learning',
+      },
+      {
+        src: '/images/projects/sibiku/sibiku.jpeg',
+        alt: 'Gesture recognition',
+      },
     ],
     // github: '', // (Opsional) Tambahkan jika ada
     liveUrl: 'https://sibi-frontend.vercel.app',
@@ -82,8 +92,91 @@ export const projects: Project[] = [
     ],
     image: '/images/projects/e-raport/e-raport.jpeg',
     gallery: [
-      { src: '/images/projects/e-raport/e-raport.jpeg', alt: 'E-Raport dashboard' },
-      { src: '/images/projects/e-raport/e-raport.jpeg', alt: 'Report input', caption: 'Input nilai' },
+      {
+        src: '/images/projects/e-raport/admin dashboard.png',
+        alt: 'Admin dashboard E-Raport',
+        caption: 'Admin dashboard',
+      },
+      {
+        src: '/images/projects/e-raport/arisp raport.png',
+        alt: 'Arsip raport',
+        caption: 'Arsip raport',
+      },
+      {
+        src: '/images/projects/e-raport/arsip penilaian.png',
+        alt: 'Arsip penilaian',
+        caption: 'Arsip penilaian',
+      },
+      {
+        src: '/images/projects/e-raport/cetak raport.png',
+        alt: 'Cetak raport',
+        caption: 'Cetak raport',
+      },
+      {
+        src: '/images/projects/e-raport/dashboard guru.png',
+        alt: 'Dashboard guru',
+        caption: 'Dashboard guru',
+      },
+      {
+        src: '/images/projects/e-raport/input penilaian mingguan.png',
+        alt: 'Input penilaian mingguan',
+        caption: 'Input penilaian mingguan',
+      },
+      {
+        src: '/images/projects/e-raport/input raport.png',
+        alt: 'Input raport',
+        caption: 'Input raport',
+      },
+      {
+        src: '/images/projects/e-raport/list penilaian.png',
+        alt: 'List penilaian',
+        caption: 'List penilaian',
+      },
+      {
+        src: '/images/projects/e-raport/master data guru.png',
+        alt: 'Master data guru',
+        caption: 'Master data guru',
+      },
+      {
+        src: '/images/projects/e-raport/master data kelompok usia.png',
+        alt: 'Master data kelompok usia',
+        caption: 'Master data kelompok usia',
+      },
+      {
+        src: '/images/projects/e-raport/master data rombel.png',
+        alt: 'Master data rombel',
+        caption: 'Master data rombel',
+      },
+      {
+        src: '/images/projects/e-raport/master data semester.png',
+        alt: 'Master data semester',
+        caption: 'Master data semester',
+      },
+      {
+        src: '/images/projects/e-raport/master data silabus.png',
+        alt: 'Master data silabus',
+        caption: 'Master data silabus',
+      },
+      {
+        src: '/images/projects/e-raport/master data siswa.png',
+        alt: 'Master data siswa',
+        caption: 'Master data siswa',
+      },
+      {
+        src: '/images/projects/e-raport/module ajar.png',
+        alt: 'Module ajar',
+        caption: 'Module ajar',
+      },
+      {
+        src: '/images/projects/e-raport/profile sekolah.png',
+        alt: 'Profile sekolah',
+        caption: 'Profile sekolah',
+      },
+      {
+        src: '/images/projects/e-raport/riwayat mengajar.png',
+        alt: 'Riwayat mengajar',
+        caption: 'Riwayat mengajar',
+      },
     ],
     featured: true,
     liveUrl: 'https://radarunaim.com',

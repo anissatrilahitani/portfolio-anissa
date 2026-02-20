@@ -1,40 +1,46 @@
-"use client";
+'use client'
 
-import { useEffect, useState } from "react";
-import { useRouter, useParams } from "next/navigation";
-import { ArrowLeft, Github, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import { Badge } from "@/components/ui/badge";
+import { useEffect, useState } from 'react'
+import { useRouter, useParams } from 'next/navigation'
+import {
+  ArrowLeft,
+  Github,
+  ExternalLink,
+  ChevronLeft,
+  ChevronRight,
+} from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
+import { Button } from '@/components/ui/button'
+import { Separator } from '@/components/ui/separator'
+import { Badge } from '@/components/ui/badge'
 import {
   Dialog,
   DialogContent,
   DialogTitle,
   DialogHeader,
-} from "@/components/ui/dialog";
-import { projects, Project } from "@/data/projects";
-import React from "react";
+} from '@/components/ui/dialog'
+import { projects, Project } from '@/data/projects'
+import React from 'react'
 
 export default function ProjectPage() {
-  const router = useRouter();
-  const params = useParams();
-  const [project, setProject] = useState<Project | null>(null);
-  const [galleryOpen, setGalleryOpen] = useState(false);
-  const [galleryIndex, setGalleryIndex] = useState(0);
+  const router = useRouter()
+  const params = useParams()
+  const [project, setProject] = useState<Project | null>(null)
+  const [galleryOpen, setGalleryOpen] = useState(false)
+  const [galleryIndex, setGalleryIndex] = useState(0)
 
   useEffect(() => {
     // Safely access slug from params
-    const slug = params?.slug?.toString() || "";
-    
-    const foundProject = projects.find((p) => p.id === slug);
+    const slug = params?.slug?.toString() || ''
+
+    const foundProject = projects.find((p) => p.id === slug)
     if (foundProject) {
-      setProject(foundProject);
+      setProject(foundProject)
     } else {
-      router.push("/projects");
+      router.push('/projects')
     }
-  }, [params, router]);
+  }, [params, router])
 
   if (!project) {
     return (
@@ -43,17 +49,13 @@ export default function ProjectPage() {
           <p>Loading project...</p>
         </div>
       </div>
-    );
+    )
   }
 
   return (
     <section className="py-12 md:py-24">
       <div className="container px-4 md:px-6">
-        <Button
-          variant="ghost"
-          className="mb-6"
-          onClick={() => router.back()}
-        >
+        <Button variant="ghost" className="mb-6" onClick={() => router.back()}>
           <ArrowLeft className="mr-2 h-4 w-4" />
           Back to Projects
         </Button>
@@ -71,14 +73,14 @@ export default function ProjectPage() {
 
               {project.image && (
                 <div className="rounded-lg overflow-hidden mb-6 relative aspect-video">
-                    <Image
-                        src={project.image}
-                        alt={project.title}
-                        className="object-cover"
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-                        priority
-                    />
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    className="object-cover"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                    priority
+                  />
                 </div>
               )}
 
@@ -88,7 +90,9 @@ export default function ProjectPage() {
 
               <div className="prose max-w-none">
                 <h2 className="text-2xl font-bold mb-4">Overview</h2>
-                <p className="mb-6">{project.longDescription || project.description}</p>
+                <p className="mb-6">
+                  {project.longDescription || project.description}
+                </p>
 
                 <h2 className="text-2xl font-bold mb-4">Achievements</h2>
                 <ul className="space-y-2 mb-6">
@@ -104,17 +108,15 @@ export default function ProjectPage() {
               {project.gallery && project.gallery.length > 0 && (
                 <div className="mt-8">
                   <h2 className="text-2xl font-bold mb-4">Project Gallery</h2>
-                  <p className="text-muted-foreground mb-4">
-                    Screenshots & fitur dari project ini.
-                  </p>
+
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                     {project.gallery.map((item, index) => (
                       <button
                         key={index}
                         type="button"
                         onClick={() => {
-                          setGalleryIndex(index);
-                          setGalleryOpen(true);
+                          setGalleryIndex(index)
+                          setGalleryOpen(true)
                         }}
                         className="relative aspect-video rounded-lg overflow-hidden border bg-muted hover:ring-2 hover:ring-primary/50 transition-all focus:outline-none focus:ring-2 focus:ring-primary"
                       >
@@ -149,7 +151,10 @@ export default function ProjectPage() {
                           >
                             <Image
                               src={project.gallery[galleryIndex].src}
-                              alt={project.gallery[galleryIndex].alt ?? project.title}
+                              alt={
+                                project.gallery[galleryIndex].alt ??
+                                project.title
+                              }
                               fill
                               className="object-contain"
                               sizes="80vw"
@@ -164,7 +169,7 @@ export default function ProjectPage() {
                               className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full h-10 w-10"
                               onClick={() =>
                                 setGalleryIndex((i) =>
-                                  i === 0 ? project.gallery!.length - 1 : i - 1
+                                  i === 0 ? project.gallery!.length - 1 : i - 1,
                                 )
                               }
                             >
@@ -176,7 +181,7 @@ export default function ProjectPage() {
                               className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full h-10 w-10"
                               onClick={() =>
                                 setGalleryIndex((i) =>
-                                  i === project.gallery!.length - 1 ? 0 : i + 1
+                                  i === project.gallery!.length - 1 ? 0 : i + 1,
                                 )
                               }
                             >
@@ -255,5 +260,5 @@ export default function ProjectPage() {
         </div>
       </div>
     </section>
-  );
+  )
 }

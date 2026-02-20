@@ -3,23 +3,20 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence, Variants } from 'framer-motion'
-import { Menu } from 'lucide-react'
+import { Menu, Sparkles } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { ThemeSwitch } from '@/components/theme-switch'
 import { cn } from '@/lib/utils'
 import { useTheme } from 'next-themes'
 
-// Import but hide the visible button
 import { CommandPalette } from '@/components/ui/command-palette'
-import { ThreeDCard } from '@/components/3d-card'
 
 interface NavItem {
   title: string
   href: string
 }
 
-// Removed 'Blog' from navigation
 const navItems: NavItem[] = [
   { title: 'Home', href: '/' },
   { title: 'About', href: '/about' },
@@ -61,38 +58,39 @@ export function Navbar() {
       y: 0,
       opacity: 1,
       transition: {
-        type: 'spring' as const,
+        type: 'spring',
         stiffness: 300,
-        damping: 20,
-        mass: 0.5,
-        duration: 0.1,
+        damping: 24,
       },
     },
     exit: {
       y: -100,
       opacity: 0,
-      transition: { duration: 0.1, ease: 'easeInOut' },
+      transition: { duration: 0.15, ease: 'easeInOut' },
     },
   }
 
   const itemVariants: Variants = {
-    hidden: { opacity: 0, y: -10 },
+    hidden: { opacity: 0, y: -8 },
     visible: (i: number) => ({
       opacity: 1,
       y: 0,
-      transition: { delay: 0.05 * i, duration: 0.5, ease: 'easeOut' },
+      transition: { delay: 0.04 * i, duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] },
     }),
   }
 
-  const isScrolledBgClass =
-    theme === 'dark'
-      ? 'bg-background/30 backdrop-blur-md border-[0.5px] border-white/10 shadow-[0_8px_32px_rgba(255,255,255,0.03)]'
-      : 'bg-background/40 backdrop-blur-md border-[0.5px] border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.1)]'
+  const headerBase =
+    'fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-4xl transition-all duration-300 ease-out rounded-2xl'
 
-  const notScrolledBgClass =
+  const headerScrolled =
     theme === 'dark'
-      ? 'bg-background/20 backdrop-blur-sm border-[0.5px] border-white/5'
-      : 'bg-background/20 backdrop-blur-sm border-[0.5px] border-white/10'
+      ? 'bg-background/70 backdrop-blur-xl border border-white/[0.08] shadow-[0_0_0_1px_rgba(255,255,255,0.03),0_20px_50px_-12px_rgba(0,0,0,0.4)]'
+      : 'bg-background/80 backdrop-blur-xl border border-black/[0.06] shadow-[0_0_0_1px_rgba(0,0,0,0.04),0_20px_50px_-12px_rgba(0,0,0,0.12)]'
+
+  const headerNotScrolled =
+    theme === 'dark'
+      ? 'bg-background/25 backdrop-blur-lg border border-white/[0.06]'
+      : 'bg-background/50 backdrop-blur-lg border border-black/[0.05]'
 
   return (
     <>
@@ -108,93 +106,111 @@ export function Navbar() {
             animate="visible"
             exit="exit"
             className={cn(
-              'fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-6xl z-50 transition-all duration-300 rounded-xl py-3 px-4',
-              isScrolled ? isScrolledBgClass : notScrolledBgClass,
+              headerBase,
+              isScrolled ? headerScrolled : headerNotScrolled,
             )}
           >
-            <ThreeDCard className="w-full">
-              <div className="flex items-center justify-between">
-                {/* Desktop Navigation */}
-                <div className="hidden md:flex justify-center flex-1">
-                  <nav className="flex items-center gap-1">
-                    {navItems.map((item, i) => (
-                      <motion.div
-                        key={item.href}
-                        custom={i}
-                        variants={itemVariants}
-                        initial="hidden"
-                        animate="visible"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
+            <div className="flex items-center justify-between gap-4 px-4 py-2.5 sm:px-5 sm:py-3">
+              {/* Logo / Brand */}
+              <Link
+                href="/"
+                className="flex items-center gap-2 shrink-0 group"
+                onClick={() => setActiveSection('/')}
+              >
+                <span
+                  className={cn(
+                    'flex h-9 w-9 items-center justify-center rounded-xl text-sm font-semibold transition-all duration-300',
+                    'bg-primary/10 text-primary group-hover:bg-primary/20 group-hover:scale-105',
+                  )}
+                >
+                  <Sparkles className="h-4 w-4" />
+                </span>
+                <span className="hidden text-sm font-semibold tracking-tight text-foreground sm:inline variable-font">
+                  Portfolio
+                </span>
+              </Link>
+
+              {/* Desktop Navigation */}
+              <div className="hidden md:flex flex-1 justify-center">
+                <nav className="flex items-center gap-1">
+                  {navItems.map((item, i) => (
+                    <motion.div
+                      key={item.href}
+                      custom={i}
+                      variants={itemVariants}
+                      initial="hidden"
+                      animate="visible"
+                    >
+                      <Link
+                        href={item.href}
+                        className={cn(
+                          'block px-4 py-2 text-sm font-medium rounded-md transition-colors duration-200 variable-font',
+                          activeSection === item.href
+                            ? 'text-foreground'
+                            : 'text-muted-foreground hover:text-foreground',
+                        )}
+                        onClick={() => setActiveSection(item.href)}
                       >
-                        <Link
-                          href={item.href}
-                          className={cn(
-                            'px-4 py-2 rounded-md text-sm font-medium transition-all hover:text-primary hover:bg-muted/50 variable-font',
-                            activeSection === item.href
-                              ? "text-primary bg-muted/60 font-variation-settings: 'wght' 600"
-                              : 'text-muted-foreground',
-                          )}
-                          onClick={() => setActiveSection(item.href)}
-                        >
-                          {item.title}
-                        </Link>
-                      </motion.div>
-                    ))}
-                  </nav>
-                </div>
+                        {item.title}
+                      </Link>
+                    </motion.div>
+                  ))}
+                </nav>
+              </div>
 
-                {/* Theme Switch */}
-                <div className="flex md:ml-4 justify-end">
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.8, type: 'spring', stiffness: 200 }}
-                  >
-                    <ThemeSwitch />
-                  </motion.div>
-                </div>
+              {/* Right: Theme + Mobile menu */}
+              <div className="flex items-center gap-2">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.2, type: 'spring', stiffness: 300 }}
+                  className="flex items-center justify-center rounded-xl p-1 bg-muted/30"
+                >
+                  <ThemeSwitch />
+                </motion.div>
 
-                {/* Mobile Navigation */}
                 <Sheet>
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.5, type: 'spring' }}
-                    className="md:hidden ml-4"
+                  <SheetTrigger asChild className="md:hidden">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="h-9 w-9 rounded-xl bg-muted/40 hover:bg-muted/60"
+                    >
+                      <Menu className="h-5 w-5" />
+                      <span className="sr-only">Toggle menu</span>
+                    </Button>
+                  </SheetTrigger>
+                  <SheetContent
+                    side="right"
+                    className="w-[min(100vw-2rem,320px)] rounded-l-2xl border-l border-border/50 bg-background/95 backdrop-blur-xl p-0"
                   >
-                    <SheetTrigger asChild>
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        className="rounded-full bg-muted/50"
-                      >
-                        <Menu className="h-6 w-6" />
-                        <span className="sr-only">Toggle menu</span>
-                      </Button>
-                    </SheetTrigger>
-                  </motion.div>
-                  <SheetContent side="right" className="p-0">
                     <div className="flex flex-col h-full">
-                      <div className="p-6 flex justify-end">
+                      <div className="p-5 flex items-center justify-between border-b border-border/50">
+                        <span className="text-sm font-semibold text-foreground">
+                          Menu
+                        </span>
                         <ThemeSwitch />
                       </div>
-                      <div className="flex-1 px-6 py-8">
-                        <ul className="flex flex-col gap-1">
+                      <nav className="flex-1 px-3 py-6">
+                        <ul className="flex flex-col gap-0.5">
                           {navItems.map((item, i) => (
                             <motion.li
                               key={item.href}
-                              initial={{ opacity: 0, x: -10 }}
+                              initial={{ opacity: 0, x: -12 }}
                               animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: 0.1 * i, duration: 0.3 }}
+                              transition={{
+                                delay: 0.05 * i,
+                                duration: 0.25,
+                                ease: 'easeOut',
+                              }}
                             >
                               <Link
                                 href={item.href}
                                 className={cn(
-                                  'block py-3 px-4 text-lg font-medium rounded-md transition-colors',
+                                  'flex items-center gap-3 rounded-xl py-3 px-4 text-base font-medium transition-colors',
                                   activeSection === item.href
-                                    ? 'text-primary bg-muted/60'
-                                    : 'text-muted-foreground hover:text-primary hover:bg-muted/30',
+                                    ? 'bg-primary/10 text-primary'
+                                    : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground',
                                 )}
                                 onClick={() => setActiveSection(item.href)}
                               >
@@ -203,12 +219,12 @@ export function Navbar() {
                             </motion.li>
                           ))}
                         </ul>
-                      </div>
+                      </nav>
                     </div>
                   </SheetContent>
                 </Sheet>
               </div>
-            </ThreeDCard>
+            </div>
           </motion.header>
         )}
       </AnimatePresence>

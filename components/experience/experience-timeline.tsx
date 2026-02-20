@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { MapPin, Calendar, CheckCircle2 } from 'lucide-react'
 import { experiences } from '@/data/experience'
 
-const easeSmooth = [0.22, 1, 0.36, 1]
+const easeSmooth = [0.22, 1, 0.36, 1] as const
 const springSoft = { type: 'spring' as const, stiffness: 400, damping: 30 }
 const springBounce = { type: 'spring' as const, stiffness: 500, damping: 25 }
 

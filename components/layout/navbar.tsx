@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence, Variants } from 'framer-motion'
 import { Menu, Sparkles } from 'lucide-react'
@@ -29,44 +29,57 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState('/')
   const [isVisible, setIsVisible] = useState(true)
-  const [lastScrollY, setLastScrollY] = useState(0)
+  const lastScrollY = useRef(0)
   const { theme } = useTheme()
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      const delta = currentScrollY - lastScrollY.current
+      const scrollThreshold = 60
+
+      // Scroll ke bawah → sembunyikan header (setelah lewat threshold dari atas)
+      if (delta > 8 && currentScrollY > scrollThreshold) {
         setIsVisible(false)
-      } else {
+      }
+      // Scroll ke atas → tampilkan header
+      if (delta < -8) {
         setIsVisible(true)
       }
+      // Di bagian paling atas halaman → selalu tampilkan
+      if (currentScrollY <= scrollThreshold) {
+        setIsVisible(true)
+      }
+
       setIsScrolled(currentScrollY > 20)
-      setLastScrollY(currentScrollY)
+      lastScrollY.current = currentScrollY
     }
-    handleScroll()
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [lastScrollY])
+  }, [])
 
   useEffect(() => {
     setActiveSection(window.location.pathname)
   }, [])
 
   const navbarVariants: Variants = {
-    hidden: { y: -100, opacity: 0 },
+    hidden: {
+      y: -100,
+      opacity: 0,
+      transition: { duration: 0.35, ease: [0.4, 0, 0.2, 1] },
+    },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        type: 'spring',
-        stiffness: 300,
-        damping: 24,
+        duration: 0.45,
+        ease: [0.32, 0.72, 0, 1],
       },
     },
     exit: {
       y: -100,
       opacity: 0,
-      transition: { duration: 0.15, ease: 'easeInOut' },
+      transition: { duration: 0.4, ease: [0.4, 0, 0.2, 1] },
     },
   }
 
@@ -98,13 +111,14 @@ export function Navbar() {
         <CommandPalette />
       </div>
 
-      <AnimatePresence>
+      <AnimatePresence initial={false}>
         {isVisible && (
           <motion.header
             variants={navbarVariants}
             initial="hidden"
             animate="visible"
             exit="exit"
+            style={{ willChange: 'transform' }}
             className={cn(
               headerBase,
               isScrolled ? headerScrolled : headerNotScrolled,

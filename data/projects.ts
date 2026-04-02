@@ -182,17 +182,44 @@ export const projects: Project[] = [
     liveUrl: 'https://radarunaim.com',
   },
   {
-    id: 'zing-zone',
-    title: 'Zing-Zone - Real Estate Marketplace',
+    id: 'fresh-cart',
+    title: 'Fresh-Cart - E-Commerce Platform',
     description:
-      'A marketplace platform that allows users to browse, list, and manage real estate properties online.',
-    technologies: ['JavaScript', 'Firebase', 'Chakra UI', 'Tailwind CSS'],
-    achievements: [
-      'Developed a real estate listing platform with user authentication and property management',
-      'Implemented search and filter functionalities for efficient property discovery',
-      'Created a responsive design using Chakra UI and Tailwind CSS',
+      'An online shopping platform for browsing products, managing carts, and completing secure checkout.',
+    technologies: [
+      'Nuxt',
+      'Go',
+      'TypeScript',
+      'Echo',
+      'GORM',
+      'Docker',
+      'RabbitMQ',
+      'Elasticsearch',
+      'Redis',
+      'PostgreSQL',
     ],
-    image: '/images/projects/zing-zone/zing-zone.jpeg',
+    achievements: [
+      'Built a modern e-commerce interface with product browsing and cart management',
+      'Implemented checkout and payment flow for smooth purchase completion',
+      'Designed responsive pages for admin and customer-side workflows',
+    ],
+    image: '/images/projects/fresh-cart/home.png',
+    gallery: [
+      {
+        src: '/images/projects/fresh-cart/home.png',
+        alt: 'Fresh-Cart home page',
+      },
+      {
+        src: '/images/projects/fresh-cart/checkout.png',
+        alt: 'Fresh-Cart checkout page',
+        caption: 'Checkout flow',
+      },
+      {
+        src: '/images/projects/fresh-cart/admin.png',
+        alt: 'Fresh-Cart admin dashboard',
+        caption: 'Admin dashboard',
+      },
+    ],
     featured: false,
   },
   {

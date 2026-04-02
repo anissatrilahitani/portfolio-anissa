@@ -32,16 +32,9 @@ export const projects: Project[] = [
       'TypeScript',
       'Flask',
       'NestJS',
+      'React.js',
       'MongoDB',
       'Docker',
-      'YOLOv8',
-      'JavaScript',
-      'React.js',
-      'Tailwind CSS',
-      'Axios',
-      'TanStack Query',
-      'Redux',
-      'Machine Learning',
     ],
     achievements: [
       'Built a full-stack web application for learning Indonesian Sign Language (SIBI)',
@@ -80,7 +73,6 @@ export const projects: Project[] = [
       'TypeScript',
       'JavaScript',
       'Next.js',
-      'Tailwind CSS',
       'NestJS',
       'PostgreSQL',
     ],
@@ -190,13 +182,11 @@ export const projects: Project[] = [
       'Nuxt',
       'Go',
       'TypeScript',
-      'Echo',
-      'GORM',
-      'Docker',
-      'RabbitMQ',
-      'Elasticsearch',
-      'Redis',
       'PostgreSQL',
+      'Redis',
+      'Elasticsearch',
+      'RabbitMQ',
+      'Docker',
     ],
     achievements: [
       'Built a modern e-commerce interface with product browsing and cart management',
@@ -210,17 +200,53 @@ export const projects: Project[] = [
         alt: 'Fresh-Cart home page',
       },
       {
+        src: '/images/projects/fresh-cart/home2.png',
+        alt: 'Fresh-Cart home page variation',
+      },
+      {
+        src: '/images/projects/fresh-cart/home-3.png',
+        alt: 'Fresh-Cart home page alternative layout',
+      },
+      {
+        src: '/images/projects/fresh-cart/login.png',
+        alt: 'Fresh-Cart login page',
+      },
+      {
         src: '/images/projects/fresh-cart/checkout.png',
         alt: 'Fresh-Cart checkout page',
         caption: 'Checkout flow',
+      },
+      {
+        src: '/images/projects/fresh-cart/checkout2.png',
+        alt: 'Fresh-Cart checkout page step two',
+      },
+      {
+        src: '/images/projects/fresh-cart/payment.png',
+        alt: 'Fresh-Cart payment page',
+      },
+      {
+        src: '/images/projects/fresh-cart/payment sukses.png',
+        alt: 'Fresh-Cart payment success page',
       },
       {
         src: '/images/projects/fresh-cart/admin.png',
         alt: 'Fresh-Cart admin dashboard',
         caption: 'Admin dashboard',
       },
+      {
+        src: '/images/projects/fresh-cart/admin2.png',
+        alt: 'Fresh-Cart admin dashboard section two',
+      },
+      {
+        src: '/images/projects/fresh-cart/admin3.png',
+        alt: 'Fresh-Cart admin dashboard section three',
+      },
+      {
+        src: '/images/projects/fresh-cart/admin4.png',
+        alt: 'Fresh-Cart admin dashboard section four',
+      },
     ],
-    featured: false,
+    featured: true,
   },
   {
     id: 'taskplus',
@@ -229,9 +255,9 @@ export const projects: Project[] = [
       'An all-in-one application for managing daily tasks and notes with reminder features.',
     technologies: [
       'JavaScript',
+      'Node.js',
       'Express.js',
       'React.js',
-      'Tailwind CSS',
       'MongoDB',
     ],
     achievements: [
@@ -247,21 +273,14 @@ export const projects: Project[] = [
     title: 'BarayaArt - Art Sharing Social Platform',
     description:
       'A social platform for sharing, saving, and discovering artworks, with community interaction features.',
-    technologies: [
-      'JavaScript',
-      'Express.js',
-      'React.js',
-      'Tailwind CSS',
-      'MongoDB',
-      'MongoDB',
-    ],
+    technologies: ['JavaScript', 'Express.js', 'React.js', 'MongoDB'],
     achievements: [
       'Created a community-driven art sharing platform with user profiles and galleries',
       'Implemented like, comment, and save features to enhance user interaction',
       'Designed a visually appealing UI tailored for art display and discovery',
     ],
     image: '/images/projects/baraya-art/baraya-art.jpeg',
-    featured: true,
+    featured: false,
   },
   {
     id: 'posivibes',

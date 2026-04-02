@@ -50,14 +50,54 @@ export const projects: Project[] = [
         caption: 'Homepage',
       },
       {
-        src: '/images/projects/sibiku/sibiku.jpeg',
-        alt: 'Learning interface',
-        caption: 'Interactive learning',
+        src: '/images/projects/sibiku/login.png',
+        alt: 'Sibiku SIBI login page',
+        caption: 'Login page',
       },
       {
-        src: '/images/projects/sibiku/sibiku.jpeg',
-        alt: 'Gesture recognition',
-        caption: 'Gesture recognition',
+        src: '/images/projects/sibiku/register.png',
+        alt: 'Sibiku SIBI register page',
+        caption: 'Register page',
+      },
+      {
+        src: '/images/projects/sibiku/lesson1.png',
+        alt: 'Sibiku SIBI lesson page one',
+        caption: 'Lesson page one',
+      },
+      {
+        src: '/images/projects/sibiku/lesson2.png',
+        alt: 'Sibiku SIBI lesson page two',
+        caption: 'Lesson page two',
+      },
+      {
+        src: '/images/projects/sibiku/lesson3.png',
+        alt: 'Sibiku SIBI lesson page three',
+        caption: 'Lesson page three',
+      },
+      {
+        src: '/images/projects/sibiku/practice.png',
+        alt: 'Sibiku SIBI practice page',
+        caption: 'Practice page',
+      },
+      {
+        src: '/images/projects/sibiku/quiz.png',
+        alt: 'Sibiku SIBI quiz page',
+        caption: 'Quiz page',
+      },
+      {
+        src: '/images/projects/sibiku/quiz2.png',
+        alt: 'Sibiku SIBI quiz result page',
+        caption: 'Quiz result page',
+      },
+      {
+        src: '/images/projects/sibiku/profile.png',
+        alt: 'Sibiku SIBI profile page',
+        caption: 'Profile page',
+      },
+      {
+        src: '/images/projects/sibiku/leaderboard.png',
+        alt: 'Sibiku SIBI leaderboard page',
+        caption: 'Leaderboard page',
       },
     ],
     // github: '', // (Opsional) Tambahkan jika ada

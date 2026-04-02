@@ -47,6 +47,7 @@ export const projects: Project[] = [
       {
         src: '/images/projects/sibiku/sibiku.jpeg',
         alt: 'Sibiku SIBI homepage',
+        caption: 'Homepage',
       },
       {
         src: '/images/projects/sibiku/sibiku.jpeg',
@@ -56,6 +57,7 @@ export const projects: Project[] = [
       {
         src: '/images/projects/sibiku/sibiku.jpeg',
         alt: 'Gesture recognition',
+        caption: 'Gesture recognition',
       },
     ],
     // github: '', // (Opsional) Tambahkan jika ada
@@ -198,18 +200,22 @@ export const projects: Project[] = [
       {
         src: '/images/projects/fresh-cart/home.png',
         alt: 'Fresh-Cart home page',
+        caption: 'Home page',
       },
       {
         src: '/images/projects/fresh-cart/home2.png',
         alt: 'Fresh-Cart home page variation',
+        caption: 'Home page variation',
       },
       {
         src: '/images/projects/fresh-cart/home-3.png',
         alt: 'Fresh-Cart home page alternative layout',
+        caption: 'Home page alternative layout',
       },
       {
         src: '/images/projects/fresh-cart/login.png',
         alt: 'Fresh-Cart login page',
+        caption: 'Login page',
       },
       {
         src: '/images/projects/fresh-cart/checkout.png',
@@ -219,14 +225,17 @@ export const projects: Project[] = [
       {
         src: '/images/projects/fresh-cart/checkout2.png',
         alt: 'Fresh-Cart checkout page step two',
+        caption: 'Checkout step two',
       },
       {
         src: '/images/projects/fresh-cart/payment.png',
         alt: 'Fresh-Cart payment page',
+        caption: 'Payment page',
       },
       {
         src: '/images/projects/fresh-cart/payment sukses.png',
         alt: 'Fresh-Cart payment success page',
+        caption: 'Payment success page',
       },
       {
         src: '/images/projects/fresh-cart/admin.png',
@@ -236,14 +245,17 @@ export const projects: Project[] = [
       {
         src: '/images/projects/fresh-cart/admin2.png',
         alt: 'Fresh-Cart admin dashboard section two',
+        caption: 'Admin dashboard section two',
       },
       {
         src: '/images/projects/fresh-cart/admin3.png',
         alt: 'Fresh-Cart admin dashboard section three',
+        caption: 'Admin dashboard section three',
       },
       {
         src: '/images/projects/fresh-cart/admin4.png',
         alt: 'Fresh-Cart admin dashboard section four',
+        caption: 'Admin dashboard section four',
       },
     ],
     featured: true,
@@ -284,30 +296,37 @@ export const projects: Project[] = [
       {
         src: '/images/projects/baraya-art/baraya-art.jpeg',
         alt: 'BarayaArt landing page',
+        caption: 'Landing page',
       },
       {
         src: '/images/projects/baraya-art/home.png',
         alt: 'BarayaArt home page',
+        caption: 'Home page',
       },
       {
         src: '/images/projects/baraya-art/feed.png',
         alt: 'BarayaArt feed page',
+        caption: 'Feed page',
       },
       {
         src: '/images/projects/baraya-art/login.png',
         alt: 'BarayaArt login page',
+        caption: 'Login page',
       },
       {
         src: '/images/projects/baraya-art/register.png',
         alt: 'BarayaArt register page',
+        caption: 'Register page',
       },
       {
         src: '/images/projects/baraya-art/see post.png',
         alt: 'BarayaArt post detail page',
+        caption: 'Post detail page',
       },
       {
         src: '/images/projects/baraya-art/see profile.png',
         alt: 'BarayaArt profile page',
+        caption: 'Profile page',
       },
     ],
     featured: false,

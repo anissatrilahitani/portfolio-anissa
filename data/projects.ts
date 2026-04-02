@@ -280,6 +280,36 @@ export const projects: Project[] = [
       'Designed a visually appealing UI tailored for art display and discovery',
     ],
     image: '/images/projects/baraya-art/baraya-art.jpeg',
+    gallery: [
+      {
+        src: '/images/projects/baraya-art/baraya-art.jpeg',
+        alt: 'BarayaArt landing page',
+      },
+      {
+        src: '/images/projects/baraya-art/home.png',
+        alt: 'BarayaArt home page',
+      },
+      {
+        src: '/images/projects/baraya-art/feed.png',
+        alt: 'BarayaArt feed page',
+      },
+      {
+        src: '/images/projects/baraya-art/login.png',
+        alt: 'BarayaArt login page',
+      },
+      {
+        src: '/images/projects/baraya-art/register.png',
+        alt: 'BarayaArt register page',
+      },
+      {
+        src: '/images/projects/baraya-art/see post.png',
+        alt: 'BarayaArt post detail page',
+      },
+      {
+        src: '/images/projects/baraya-art/see profile.png',
+        alt: 'BarayaArt profile page',
+      },
+    ],
     featured: false,
   },
   {

@@ -306,18 +306,65 @@ export const projects: Project[] = [
     description:
       'An all-in-one application for managing daily tasks and notes with reminder features.',
     technologies: [
-      'JavaScript',
-      'Node.js',
-      'Express.js',
-      'React.js',
-      'MongoDB',
+      'React',
+      'Go',
+      'Echo',
+      'GORM',
+      'PostgreSQL',
     ],
     achievements: [
-      'Built a full-stack task management application with CRUD operations',
-      'Integrated reminder notifications for upcoming tasks',
-      'Implemented user authentication and data persistence with MongoDB',
+      'Built a full-stack task management app with a React SPA and a Go REST API using Echo',
+      'Modeled and persisted data with GORM on PostgreSQL, including auth and task workflows',
+      'Integrated reminder notifications for upcoming tasks with structured categories and lists',
     ],
-    image: '/images/projects/taskplus/taskplus.jpeg',
+    image: '/images/projects/taskplus/landing.png',
+    gallery: [
+      {
+        src: '/images/projects/taskplus/landing.png',
+        alt: 'TaskPlus landing page',
+        caption: 'Landing page',
+      },
+      {
+        src: '/images/projects/taskplus/login.png',
+        alt: 'TaskPlus login page',
+        caption: 'Login',
+      },
+      {
+        src: '/images/projects/taskplus/register.png',
+        alt: 'TaskPlus register page',
+        caption: 'Register',
+      },
+      {
+        src: '/images/projects/taskplus/dashboard.png',
+        alt: 'TaskPlus dashboard',
+        caption: 'Dashboard',
+      },
+      {
+        src: '/images/projects/taskplus/list category.png',
+        alt: 'TaskPlus category list',
+        caption: 'Categories',
+      },
+      {
+        src: '/images/projects/taskplus/create category.png',
+        alt: 'TaskPlus create category',
+        caption: 'Create category',
+      },
+      {
+        src: '/images/projects/taskplus/list todo.png',
+        alt: 'TaskPlus todo list',
+        caption: 'Todo list',
+      },
+      {
+        src: '/images/projects/taskplus/list todo2.png',
+        alt: 'TaskPlus todo list alternate view',
+        caption: 'Todo list (view)',
+      },
+      {
+        src: '/images/projects/taskplus/setting.png',
+        alt: 'TaskPlus settings',
+        caption: 'Settings',
+      },
+    ],
     featured: false,
   },
   {

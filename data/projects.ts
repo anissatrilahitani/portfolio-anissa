@@ -436,6 +436,63 @@ export const projects: Project[] = [
       'Designed an uplifting UI to promote positive user engagement',
     ],
     image: '/images/projects/posivibes/posivibes.jpeg',
+    gallery: [
+      {
+        src: '/images/projects/posivibes/login.png',
+        alt: 'PosiVibes login page',
+        caption: 'Login',
+      },
+      {
+        src: '/images/projects/posivibes/register.png',
+        alt: 'PosiVibes register page',
+        caption: 'Register',
+      },
+      {
+        src: '/images/projects/posivibes/suggest friend.png',
+        alt: 'PosiVibes suggested friends',
+        caption: 'Suggested friends',
+      },
+      {
+        src: '/images/projects/posivibes/feed repost.png',
+        alt: 'PosiVibes feed with reposts',
+        caption: 'Feed',
+      },
+      {
+        src: '/images/projects/posivibes/post.png',
+        alt: 'PosiVibes post detail',
+        caption: 'Post',
+      },
+      {
+        src: '/images/projects/posivibes/create post.png',
+        alt: 'PosiVibes create post',
+        caption: 'Create post',
+      },
+      {
+        src: '/images/projects/posivibes/comment.png',
+        alt: 'PosiVibes comments',
+        caption: 'Comments',
+      },
+      {
+        src: '/images/projects/posivibes/follow user.png',
+        alt: 'PosiVibes follow user',
+        caption: 'Follow user',
+      },
+      {
+        src: '/images/projects/posivibes/lihat prrofile user.png',
+        alt: 'PosiVibes user profile view',
+        caption: 'User profile',
+      },
+      {
+        src: '/images/projects/posivibes/my profile.png',
+        alt: 'PosiVibes my profile',
+        caption: 'My profile',
+      },
+      {
+        src: '/images/projects/posivibes/edit profile.png',
+        alt: 'PosiVibes edit profile',
+        caption: 'Edit profile',
+      },
+    ],
     featured: false,
   },
 ]

@@ -36,9 +36,10 @@ export default function AboutPage() {
               <p>
                 I&apos;m Anissa Tri Lahitani, a Backend-focused Fullstack
                 Developer with a passion for building scalable and reliable web
-                applications. I&apos;m currently pursuing a Master&apos;s in
-                Computer Science at Northeastern University, where I continue to
-                deepen my knowledge in software engineering and system design.
+                applications. I hold a Bachelor&apos;s degree in Informatics
+                Engineering from Sunan Gunung Djati State Islamic University
+                Bandung, where I built a strong foundation in software
+                engineering and system design.
               </p>
               <p>
                 I specialize in designing and developing efficient APIs and

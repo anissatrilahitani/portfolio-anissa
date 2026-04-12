@@ -5,7 +5,7 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'Anissa Tri Lahitani | Backend Developer',
   description:
-    'Backend Developer & Machine Learning Enthusiast with expertise in Next.js, React, and blockchain technologies.',
+    'Backend-focused Fullstack Developer specializing in building scalable, efficient, and reliable APIs and systems, with experience in frontend development.',
   metadataBase: new URL('https://anissatrilahitani.com'),
 
   // Basic metadata

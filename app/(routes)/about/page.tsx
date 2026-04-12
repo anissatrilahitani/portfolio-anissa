@@ -34,25 +34,24 @@ export default function AboutPage() {
             <h2 className="text-2xl font-bold mb-4">Who I Am</h2>
             <div className="space-y-4 text-muted-foreground">
               <p>
-                I&apos;m Anissa Tri Lahitani, a Backend Developer with a passion
-                for creating innovative web applications and exploring
-                blockchain technologies. I&apos;m currently pursuing a
-                Master&apos;s in Computer Science at Northeastern University,
-                where I continue to expand my knowledge and skills.
+                I&apos;m Anissa Tri Lahitani, a Backend-focused Fullstack
+                Developer with a passion for building scalable and reliable web
+                applications. I&apos;m currently pursuing a Master&apos;s in
+                Computer Science at Northeastern University, where I continue to
+                deepen my knowledge in software engineering and system design.
               </p>
               <p>
-                With expertise in Next.js, React, and various blockchain
-                technologies, I enjoy building scalable and user-friendly
-                applications that solve real-world problems. My background in
-                computer science has given me a strong foundation in algorithms,
-                data structures, and system design, which I apply to create
-                efficient and maintainable code.
+                I specialize in designing and developing efficient APIs and
+                backend systems, while also having experience in frontend
+                development. I enjoy solving real-world problems by building
+                applications that are performant, maintainable, and
+                user-focused.
               </p>
               <p>
-                I&apos;m particularly interested in the intersection of web
-                development and blockchain technology, where I&apos;ve developed
-                several projects that leverage the power of decentralized
-                systems to create secure and transparent applications.
+                With a strong foundation in algorithms, data structures, and
+                system design, I focus on writing clean, efficient code and
+                building systems that scale effectively under real-world
+                demands.
               </p>
             </div>
 
